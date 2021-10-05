@@ -7,32 +7,23 @@ using System.Threading.Tasks;
 namespace CS_lab2 {
     class Program {
         public static void printData(List<Doctor> doctors, List<Client> clients) {
-            foreach (var client in clients) {
-                Console.WriteLine(client.ToString());
-            }
+            clients.ToList().ForEach(c => { Console.WriteLine(c.ToString()); });
             Console.WriteLine();
-            foreach (var doctor in doctors) {
-                Console.WriteLine(doctor.ToString());
-            }
+            doctors.ToList().ForEach(d => { Console.WriteLine(d.ToString()); });
             Console.WriteLine();
         }
 
         public static void createDictionaries(List<Doctor> doctors, List<Client> clients) {
             var clientTable = clients.OrderBy(c => c.userID).ToDictionary(c => c.userID, c => c);
-            foreach (var client in clientTable) {
-                Console.WriteLine(client);
-            }
+            clientTable.ToList().ForEach(c => { Console.WriteLine(c.ToString()); });
             Console.WriteLine();
-            
+
             var doctorTable = doctors.OrderBy(d => d.userID).ToDictionary(
                 d => d.userID, d => clients.Where(c => c.assignedDoctor == d.userID));
 
-            foreach (var doctor in doctorTable) {
-                Console.WriteLine("Doctor id-" + doctor.Key);
-                foreach (var client in doctor.Value) {
-                    Console.WriteLine("\t" + client.ToString());
-                }
-            }
+            doctorTable.ToList().ForEach(d => { Console.WriteLine("Doctor id-" + d.Key);
+                d.Value.ToList().ForEach(c => { Console.WriteLine("\t" + c.ToString()); });
+            });
             Console.WriteLine();
         }
 
@@ -42,20 +33,16 @@ namespace CS_lab2 {
                 group client by client.data.bloodType into bloodGroup
                 orderby bloodGroup.Key
                 select bloodGroup;
-            foreach (var client in clientsByBloodType) {
-                Console.WriteLine("Blood type - " + client.Key);
-                foreach (var cl in client) {
-                    Console.WriteLine("\t" + cl.ToString());
-                }
-            }
+
+            clientsByBloodType.ToList().ForEach(c => { Console.WriteLine("Blood type - " + c.Key);
+                c.ToList().ForEach(cl => { Console.WriteLine("\t" + cl.ToString()); });
+            });
             Console.WriteLine();
         }
 
         public static void  orderDoctorsByNumberOfClients(List<Doctor> doctors, List<Client> clients) {
-            var doctorsSortedByNumberOfClients = doctors.OrderBy(d => clients.Where(c => c.assignedDoctor == d.userID).Count());
-            foreach (var doctor in doctorsSortedByNumberOfClients) {
-                Console.WriteLine(doctor.ToString());
-            }
+            var doctorsSortedByNumberOfClients = doctors.OrderBy(d => clients.Where(c => c.assignedDoctor == d.userID).Count());      
+            doctorsSortedByNumberOfClients.ToList().ForEach(d => { Console.WriteLine(d.ToString()); });
             Console.WriteLine();
         }
 
