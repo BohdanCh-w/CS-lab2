@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace CS_lab2 {
     class User {
-        private uint userID { get; set; }
-        private string name { get; set; }
-        private DateTime birthDate { get; set; }
-        private string gender { get; set; }
-        private DateTime registerDateTime { get; set; }
+        public uint userID { get; set; }
+        public string name { get; set; }
 
         public User() {
             userID = 0;
@@ -26,6 +23,10 @@ namespace CS_lab2 {
         public User(User other) {
             userID = other.userID;
             name = other.name;
+        }
+
+        public override string ToString() {
+            return String.Format("id-{0}: {1}.", userID, name);
         }
     }
 }

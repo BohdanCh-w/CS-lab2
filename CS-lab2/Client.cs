@@ -5,29 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 
 enum BLOOD_TYPE {
+    Group_O,
     Group_A,
     Group_B,
     Group_AB,
-    Group_O,
     UNSET
 }
 
 namespace CS_lab2 {
     class Client : User {
-        private uint clientID { get; set; }
-        private BLOOD_TYPE bloodType { get; set; }
-        private uint assignedDoctor { get; set; }
+        public BLOOD_TYPE bloodType { get; set; }
+        public uint assignedDoctor { get; set; }
 
         public Client() : base() {
-            clientID = 0;
             bloodType = BLOOD_TYPE.UNSET;
             assignedDoctor = 0;
         }
 
-        public Client(User _baseUser, uint _clientID, BLOOD_TYPE _bloodType, uint _assignedDoctor) : base(_baseUser) {
-            clientID = _clientID;
+        public Client(User _baseUser, BLOOD_TYPE _bloodType, uint _assignedDoctor) : base(_baseUser) {
             bloodType = _bloodType;
             assignedDoctor = _assignedDoctor;
+        }
+
+        public override string ToString() {
+            return String.Format("id-{0} : {1}. Blood - {2}, Assigned to {3}", userID, name, bloodType, assignedDoctor);
         }
     }
 }
