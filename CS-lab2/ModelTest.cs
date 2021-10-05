@@ -20,20 +20,20 @@ namespace CS_lab2 {
         public List<Client> Clients {
             get {
                 return new List<Client>() {
-                    new Client(new User(5, "Fifth"), BLOOD_TYPE.Group_O, 1),
-                    new Client(new User(6, "Sixth"), BLOOD_TYPE.Group_B, 2),
-                    new Client(new User(7, "Seventh"), BLOOD_TYPE.Group_AB, 2),
-                    new Client(new User(8, "Eighth"), BLOOD_TYPE.Group_A, 1),
-                    new Client(new User(9, "Ninth"), BLOOD_TYPE.Group_B, 3),
-                    new Client(new User(10, "Tenth"), BLOOD_TYPE.Group_A, 4),
-                    new Client(new User(11, "Eleventh"), BLOOD_TYPE.Group_A, 4),
-                    new Client(new User(12, "Twelveth"), BLOOD_TYPE.Group_AB,5),
-                    new Client(new User(13, "Thirteenth"), BLOOD_TYPE.Group_O, 2),
-                    new Client(new User(14, "Fourteenth"), BLOOD_TYPE.Group_A, 5),
-                    new Client(new User(15, "Fifteenth"), BLOOD_TYPE.Group_O, 3),
-                    new Client(new User(16, "Sixteenth"), BLOOD_TYPE.Group_B, 2),
-                    new Client(new User(17, "Seventeenth"), BLOOD_TYPE.Group_AB, 1),
-                    new Client(new User(18, "Eighteenth"), BLOOD_TYPE.Group_AB, 4)
+                    new Client(new User(5, "Fifth"), 1, new PatientData(BLOOD_TYPE.Group_O, "Fifth location", new List<AnalisisResult>() )),
+                    new Client(new User(6, "Sixth"), 2, new PatientData(BLOOD_TYPE.Group_B, "Sixth location", new List<AnalisisResult>() )),
+                    new Client(new User(7, "Seventh"), 2, new PatientData(BLOOD_TYPE.Group_AB, "Seventh location", new List<AnalisisResult>() )),
+                    new Client(new User(8, "Eighth"), 1, new PatientData(BLOOD_TYPE.Group_A, "Eighth location", new List<AnalisisResult>() )),
+                    new Client(new User(9, "Ninth"), 3, new PatientData(BLOOD_TYPE.Group_B, "Ninth location", new List<AnalisisResult>() )),
+                    new Client(new User(10, "Tenth"), 4, new PatientData(BLOOD_TYPE.Group_A, "Tenth location", new List<AnalisisResult>() )),
+                    new Client(new User(11, "Eleventh"), 4, new PatientData(BLOOD_TYPE.Group_A, "Eleventh location", new List<AnalisisResult>() )),
+                    new Client(new User(12, "Twelveth"), 2, new PatientData(BLOOD_TYPE.Group_AB, "Twelveth location", new List<AnalisisResult>() )),
+                    new Client(new User(13, "Thirteenth"), 2, new PatientData(BLOOD_TYPE.Group_O, "Thirteenth location", new List<AnalisisResult>() )),
+                    new Client(new User(14, "Fourteenth"), 4, new PatientData(BLOOD_TYPE.Group_A, "Fourteenth location", new List<AnalisisResult>() )),
+                    new Client(new User(15, "Fifteenth"), 3, new PatientData(BLOOD_TYPE.Group_O, "Fifteenth location", new List<AnalisisResult>() )),
+                    new Client(new User(16, "Sixteenth"), 2, new PatientData(BLOOD_TYPE.Group_B, "Sixteenth location", new List<AnalisisResult>() )),
+                    new Client(new User(17, "Seventeenth"), 1, new PatientData(BLOOD_TYPE.Group_AB, "Seventeenth location", new List<AnalisisResult>() )),
+                    new Client(new User(18, "Eighteenth"), 4, new PatientData(BLOOD_TYPE.Group_AB, "Eighteenth location", new List<AnalisisResult>() ))
                 };
             }
         }

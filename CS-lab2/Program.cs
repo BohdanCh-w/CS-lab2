@@ -23,8 +23,10 @@ namespace CS_lab2 {
                 Console.WriteLine(client);
             }
             Console.WriteLine();
+            
             var doctorTable = doctors.OrderBy(d => d.userID).ToDictionary(
                 d => d.userID, d => clients.Where(c => c.assignedDoctor == d.userID));
+
             foreach (var doctor in doctorTable) {
                 Console.WriteLine("Doctor id-" + doctor.Key);
                 foreach (var client in doctor.Value) {
@@ -37,7 +39,7 @@ namespace CS_lab2 {
         public static void groupByBlood(List<Client> clients) {
             var clientsByBloodType = 
                 from client in clients
-                group client by client.bloodType into bloodGroup
+                group client by client.data.bloodType into bloodGroup
                 orderby bloodGroup.Key
                 select bloodGroup;
             foreach (var client in clientsByBloodType) {
@@ -58,7 +60,7 @@ namespace CS_lab2 {
         }
 
         static void Main(string[] args) {
-            var testData = new ModelTest();
+            var testData = new ModelTest(); 
             var doctors = testData.Doctors;
             var clients = testData.Clients;
 
